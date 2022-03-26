@@ -36,16 +36,16 @@ function Signup() {
         </div>
         <form className="form-signup-input">
           <p className="label-input">Please enter your username</p>
-          <TextField
-            className="input-signup"
-            id="outlined-basic"
-            label="your name"
-            variant="outlined"
-            value={inputSignupValue}
-            onChange={(e) => setInputSignupValue(e.target.value)}
-          />
-          <Stack direction="row-reverse" spacing={2}>
-            <ThemeProvider theme={theme}>
+          <ThemeProvider theme={theme}>
+            <TextField
+              className="input-signup"
+              id="outlined-basic"
+              label="your name"
+              variant="outlined"
+              value={inputSignupValue}
+              onChange={(e) => setInputSignupValue(e.target.value)}
+            />
+            <Stack direction="row-reverse" spacing={2}>
               <Button
                 className="submit-form-button"
                 disabled={stateButton.stateButton}
@@ -53,8 +53,8 @@ function Signup() {
               >
                 ENTER
               </Button>
-            </ThemeProvider>
-          </Stack>
+            </Stack>
+          </ThemeProvider>
         </form>
       </div>
     </div>
