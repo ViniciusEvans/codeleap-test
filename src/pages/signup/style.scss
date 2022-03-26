@@ -1,0 +1,25 @@
+.signup {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  .container-form-signup {
+    padding: 2.8rem 3rem;
+    background-color: #ffff;
+    width: 50rem;
+    .container-signup-header {
+    }
+    .form-signup-input {
+      .input-signup {
+        width: 100%;
+        margin-bottom: 2rem;
+        font-size: 1.6rem;
+      }
+      .submit-form-button {
+        font-size: 1.6rem;
+        padding: 0.7rem 3rem;
+      }
+    }
+  }
+}
