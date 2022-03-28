@@ -1,0 +1,35 @@
+.create-post-container {
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  padding: 2rem 3rem;
+  .container--header {
+  }
+  .create-post-form {
+    .label {
+      font-size: 1.6rem;
+    }
+    .form--input--title {
+      .input-title {
+        width: 100%;
+        div {
+          font-size: 1.6rem;
+          align-items: flex-start;
+        }
+      }
+    }
+    .form--input--content {
+      .input-content {
+        width: 100%;
+        margin-bottom: 2rem;
+        div {
+          font-size: 1.6rem;
+          align-items: flex-start;
+        }
+      }
+    }
+    .submit-post-button {
+      font-size: 1.6rem;
+      padding: 0.7rem 3rem;
+    }
+  }
+}
