@@ -8,7 +8,7 @@ function RoutesController() {
     <Routes>
       <Route path="/signup" element={<Signup />} />
       <Route path="/" element={<RequiredUsername />}>
-        <Route path="home" element={<Home />} />
+        <Route path="" element={<Home />} />
       </Route>
     </Routes>
   );
