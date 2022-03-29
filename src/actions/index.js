@@ -1,9 +1,13 @@
-export function handleEnableButton(inputSignupValue) {
+import * as types from "../redux/modules/types";
+
+export function handleEnableButton() {
   return {
-    type: "ENABLE_BUTTON",
-    payload: { username: inputSignupValue },
+    type: types.ENABLE_BUTTON,
   };
 }
 export function handleDisableButton() {
-  return { type: "DISABLE_BUTTON" };
+  return { type: types.DISABLE_BUTTON };
+}
+export function handleSubmitSignup(inputSignupValue) {
+  return { type: types.SUBMIT_SIGNUP, payload: { username: inputSignupValue } };
 }
