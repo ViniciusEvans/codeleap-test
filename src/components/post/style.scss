@@ -1,0 +1,48 @@
+.post-container {
+  height: 35rem;
+  width: auto;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+  margin: 3.5rem 0;
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 3.5rem;
+    background-color: #000000;
+    color: #ffffff;
+    .delete-edit-button {
+      .btn {
+        padding: 0.3rem;
+        background-color: #000000;
+        border: none;
+        border-radius: 0.3rem;
+        transition: 0.2s;
+        &:hover {
+          background-color: rgb(153, 153, 153, 0.5);
+        }
+        &:active {
+          background-color: rgb(153, 153, 153, 0.6);
+        }
+        img {
+          max-width: 3rem;
+        }
+      }
+    }
+  }
+  .post--content--section {
+    padding: 2.5rem 3rem;
+    .post-infos {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.8rem;
+      color: #777777;
+    }
+    .post-content {
+      font-size: 1.6rem;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
