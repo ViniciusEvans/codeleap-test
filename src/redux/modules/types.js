@@ -1,0 +1,3 @@
+export const ENABLE_BUTTON = "ENABLE_BUTTON";
+export const DISABLE_BUTTON = "DISABLE_BUTTON";
+export const SUBMIT_SIGNUP = "SUBMIT_SIGNUP";
