@@ -5,11 +5,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./style.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { handleEnableButton, handleDisableButton } from "../../actions";
+import * as actions from "../../actions";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [inputSignupValue, setInputSignupValue] = useState("");
-
+  const navigate = useNavigate();
   const stateButton = useSelector((state) => state);
   const dispatch = useDispatch();
   const theme = createTheme({
@@ -21,12 +22,17 @@ function Signup() {
   });
   useEffect(() => {
     if (inputSignupValue) {
-      dispatch(handleEnableButton(inputSignupValue));
+      dispatch(actions.handleEnableButton());
       return;
     }
 
-    dispatch(handleDisableButton());
+    dispatch(actions.handleDisableButton());
   }, [inputSignupValue]);
+
+  function handleSubmit() {
+    dispatch(actions.handleSubmitSignup(inputSignupValue));
+    navigate("/");
+  }
 
   return (
     <div className="signup">
@@ -48,8 +54,9 @@ function Signup() {
             <Stack direction="row-reverse" spacing={2}>
               <Button
                 className="submit-form-button"
-                disabled={stateButton.stateButton}
+                disabled={stateButton.reducer.stateButton}
                 variant="contained"
+                onClick={handleSubmit}
               >
                 ENTER
               </Button>
