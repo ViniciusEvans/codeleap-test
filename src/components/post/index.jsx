@@ -2,8 +2,11 @@ import "./style.scss";
 import editIcon from "../../assets/edit-icon.svg";
 import deleteIcon from "../../assets/delete-icon.svg";
 import calcTime from "../../services/getTIme";
+import { useDispatch } from "react-redux";
+import * as actions from "../../actions/index";
 
 function PostComponent(props) {
+  const dispatch = useDispatch();
   return (
     <div className="post-container" key={props.id}>
       <div className="post-header">
@@ -11,13 +14,15 @@ function PostComponent(props) {
         {props.username === props.loggedUser && (
           <div className="delete-edit-button">
             <button
-              onClick={() => console.log(props.id)}
+              onClick={() => dispatch(actions.deletePost(props.id))}
               className="btn delete-btn"
             >
               <img src={deleteIcon} alt="delete icon" />
             </button>
             <button
-              onClick={() => console.log(props.id)}
+              onClick={() =>
+                dispatch(actions.editPost(props.content, props.title, props.id))
+              }
               className="btn edit-btn"
             >
               <img src={editIcon} alt="delete icon" />
