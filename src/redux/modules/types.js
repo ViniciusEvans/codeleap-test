@@ -1,3 +1,10 @@
 export const ENABLE_BUTTON = "ENABLE_BUTTON";
 export const DISABLE_BUTTON = "DISABLE_BUTTON";
+export const ENABLE_POST = "ENABLE_POST";
+export const DISABLE_POST = "DISABLE_POST";
 export const SUBMIT_SIGNUP = "SUBMIT_SIGNUP";
+export const CREATE_POST_SUCCESS = "CREATE_POST_SUCCESS";
+export const CREATE_POST_FAILURE = "CREATE_POST_FAILURE";
+export const DELETE_POST = "DELETE_POST";
+export const EDIT_POST = "EDIT_POST";
+export const GET_POST = "GET_POST";
