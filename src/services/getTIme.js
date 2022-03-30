@@ -8,7 +8,7 @@ export default function calcTime(time) {
     return Math.ceil(diffHours / 24) + " day";
   }
   if (diffHours < 1) {
-    return elapsedTime / (1000 * 60) + " minutes";
+    return Math.round(elapsedTime / (1000 * 60)) + " minutes";
   } else {
     return Math.round(diffHours) + " hours";
   }
