@@ -1,7 +1,35 @@
 import "./style.scss";
-import CreatePost from "../../components/createPost";
+import PostForm from "../../components/postComponent";
+import PostComponent from "../../components/post";
+import ConfirmDeleteModal from "../../components/confirmDeleteModal";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import * as actions from "../../actions/index";
 
 function Home() {
+  const states = useSelector((state) => state);
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    getPosts();
+  }, [states.reducer.getPosts]);
+
+  async function getPosts() {
+    const response = await fetch(
+      "https://dev.codeleap.co.uk/careers/?format=json",
+      {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
+    const datasorted = await data.results.sort((a, b) => a + b);
+
+    setPosts([...datasorted]);
+  }
+
   return (
     <div className="home">
       <div className="home-body-app">
@@ -10,8 +38,24 @@ function Home() {
             <h1 className="home--header">CodeLeap Network</h1>
           </div>
           <div className="app-container-post">
-            <CreatePost />
+            <PostForm type={"CREATE_POST"} />
+            {posts.map((post) => {
+              return (
+                <PostComponent
+                  {...post}
+                  loggedUser={states.reducerSignup.payload.username}
+                  time={post.created_datetime}
+                  key={post.id}
+                />
+              );
+            })}
           </div>
+          {states.reducer.editPostSetup.showModal && (
+            <div className="edit-modal-post">
+              <PostForm type={"EDIT_POST"} />
+            </div>
+          )}
+          {states.reducer.deletePostSetup.showModal && <ConfirmDeleteModal />}
         </div>
       </div>
     </div>
