@@ -11,7 +11,7 @@
       min-height: 100%;
       width: 80rem;
       background-color: #ffffff;
-      padding: 12rem 3.8rem 4.4rem;
+      padding: 12rem 0 4.4rem;
       .home-container-header {
         position: absolute;
         top: 0;
@@ -25,6 +25,9 @@
           padding: 2.7rem 3.7rem;
           margin: 0;
         }
+      }
+      .app-container-post {
+        padding: 5%;
       }
       .edit-modal-post {
         position: fixed;
