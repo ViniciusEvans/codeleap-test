@@ -26,7 +26,7 @@ function Home() {
 
     const data = await response.json();
     const datasorted = await data.results.sort((a, b) => a + b);
-
+    console.log(datasorted);
     setPosts([...datasorted]);
   }
 
