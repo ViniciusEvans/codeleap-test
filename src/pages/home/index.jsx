@@ -29,7 +29,7 @@ function Home() {
     console.log(datasorted);
     setPosts([...datasorted]);
   }
-
+  console.log(states.reducerSignup.payload.username);
   return (
     <div className="home">
       <div className="home-body-app">
@@ -43,7 +43,7 @@ function Home() {
               return (
                 <PostComponent
                   {...post}
-                  loggedUser={states.reducerSignup.payload.username}
+                  loggedUser={states.reducerSignup.payload.username.trim()}
                   time={post.created_datetime}
                   key={post.id}
                 />
