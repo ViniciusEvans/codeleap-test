@@ -46,7 +46,7 @@ function Signup() {
             <TextField
               className="input-signup"
               id="outlined-basic"
-              label="your name"
+              placeholder="John Doe"
               variant="outlined"
               value={inputSignupValue}
               onChange={(e) => setInputSignupValue(e.target.value)}

@@ -3,8 +3,7 @@ import PostForm from "../../components/postComponent";
 import PostComponent from "../../components/post";
 import ConfirmDeleteModal from "../../components/confirmDeleteModal";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as actions from "../../actions/index";
+import { useSelector } from "react-redux";
 
 function Home() {
   const states = useSelector((state) => state);
@@ -26,10 +25,8 @@ function Home() {
 
     const data = await response.json();
     const datasorted = await data.results.sort((a, b) => a + b);
-    console.log(datasorted);
     setPosts([...datasorted]);
   }
-  console.log(states.reducerSignup.payload.username);
   return (
     <div className="home">
       <div className="home-body-app">

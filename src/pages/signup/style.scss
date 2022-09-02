@@ -15,12 +15,17 @@
         width: 100%;
         margin-bottom: 2rem;
         div {
-          font-size: 1.6rem;
+          input {
+            padding: 0;
+          }
+          padding: 0.6rem 1.1rem;
+          font-size: 1.4rem;
         }
       }
       .submit-form-button {
         font-size: 1.6rem;
         padding: 0.7rem 3rem;
+        border-radius: 0;
       }
     }
   }

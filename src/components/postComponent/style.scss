@@ -5,33 +5,45 @@
   background-color: #ffffff;
 
   .container--header {
+    margin: 2.3rem 0 3.4rem 0;
   }
   .post--section--form {
     .label {
       font-size: 1.6rem;
     }
     .form--input--title {
+      .title-input-label {
+        margin: 0.7rem;
+      }
       .input-title {
         width: 100%;
         div {
-          font-size: 1.6rem;
+          input {
+            padding: 0.6rem 1rem;
+          }
+          font-size: 1.4rem;
           align-items: flex-start;
         }
       }
     }
     .form--input--content {
+      .content-input-label {
+        margin: 0.7rem;
+      }
       .input-content {
         width: 100%;
         margin-bottom: 2rem;
         div {
-          font-size: 1.6rem;
+          padding: 0.7rem 1rem 5.1rem 1rem;
+          font-size: 1.4rem;
           align-items: flex-start;
         }
       }
     }
     .submit-post-button {
       font-size: 1.6rem;
-      padding: 0.7rem 3rem;
+      padding: 0.7rem 2.7rem;
+      border-radius: 0;
     }
   }
 }
