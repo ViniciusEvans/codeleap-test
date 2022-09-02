@@ -10,8 +10,6 @@ import * as actions from "../../actions/index";
 function PostForm({ type = "CREATE_POST" }) {
   const [inputContentValue, setInputContentValue] = useState("");
   const [inputTitleValue, setInputTitleValue] = useState("");
-  const [disabled, setDisabled] = useState(true);
-
   const dispatch = useDispatch();
 
   const reducerInitialState = useSelector((state) => state);
@@ -34,15 +32,15 @@ function PostForm({ type = "CREATE_POST" }) {
 
   useEffect(() => {
     if (!inputContentValue || !inputTitleValue) {
-      dispatch(actions.disablePostButton());
+      dispatch(actions.handleDisableButton());
       return;
     }
-    dispatch(actions.enablePostButton());
+    dispatch(actions.handleEnableButton());
   }, [inputContentValue, inputTitleValue]);
 
   async function handlePost(e) {
     e.preventDefault();
-    if (reducerInitialState.reducer.stateCreatePost) {
+    if (reducerInitialState.reducer.stateButton) {
       return;
     }
     if (!inputContentValue || !inputTitleValue) {
@@ -68,6 +66,7 @@ function PostForm({ type = "CREATE_POST" }) {
     } finally {
       setInputContentValue("");
       setInputTitleValue("");
+      dispatch(actions.handleDisableButton());
       if (type === "EDIT_POST") {
         dispatch(actions.editPost());
       }
@@ -85,7 +84,6 @@ function PostForm({ type = "CREATE_POST" }) {
     const data = await response.json();
     return data;
   }
-
   return (
     <div className="post-form-container">
       <div className="container--header">
@@ -101,7 +99,7 @@ function PostForm({ type = "CREATE_POST" }) {
               <TextField
                 className="input input-title"
                 id="outlined-basic"
-                label="Title"
+                placeholder="Hello World"
                 variant="outlined"
                 value={inputTitleValue}
                 onChange={(e) => setInputTitleValue(e.target.value)}
@@ -114,7 +112,7 @@ function PostForm({ type = "CREATE_POST" }) {
                 id="outlined-multiline-static"
                 multiline
                 maxRows={4}
-                label="Content"
+                placeholder="Content Here"
                 value={inputContentValue}
                 onChange={(e) => setInputContentValue(e.target.value)}
               />
@@ -122,7 +120,7 @@ function PostForm({ type = "CREATE_POST" }) {
             <Stack direction="row-reverse" spacing={2}>
               <Button
                 className="submit-post-button"
-                disabled={reducerInitialState.reducer.stateCreatePost}
+                disabled={reducerInitialState.reducer.stateButton}
                 variant="contained"
                 type="submit"
               >

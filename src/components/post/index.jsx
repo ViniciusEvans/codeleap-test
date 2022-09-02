@@ -7,7 +7,7 @@ import * as actions from "../../actions/index";
 
 function PostComponent(props) {
   const dispatch = useDispatch();
-  console.log(props);
+
   return (
     <div className="post-container" key={props.id}>
       <div className="post-header">
